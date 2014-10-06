@@ -55,13 +55,17 @@ for  _, value := range classmap {
     outs = append(outs, "}\" style=filled fillcolor=\"#ffffff\" shape=\"record\"];\n")
 }
 idpairs := make(map[string]int)
+parentmap := make(map[int][]int)
+var tempintslice []int
 for  _, value := range classmap {
 
     if opt_inherit {
         for parenti = range value.parents {
             parentstr = classmap[value.parents[parenti]]
             if len(parentstr.name) == 0 {continue}
-            outs = append(outs, buildArrowLine(value.id, parentstr.id, "empty"))
+            tempintslice = parentmap[parentstr.id]
+            tempintslice = append(tempintslice, value.id)
+            parentmap[parentstr.id] = tempintslice
         }
     }
     if opt_relationship {
@@ -75,6 +79,17 @@ for  _, value := range classmap {
     }
 }
 
+for par, children := range parentmap {
+    outs = append(outs, "{ ")
+    for childi := range children {
+        outs = append(outs, "n")
+        outs = append(outs, strconv.Itoa(children[childi]))
+        outs = append(outs, " ")
+    }
+    outs = append(outs, "} -> n")
+    outs = append(outs, strconv.Itoa(par))
+    outs = append(outs, " [arrowhead=\"empty\"];\n")
+}
 
 outs = append(outs, "}\n")
 return strings.Join(outs, "")
