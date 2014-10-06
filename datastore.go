@@ -1,5 +1,5 @@
 
-//   tags2umlclass
+//   tags2uml
 //   Copyright 2014 ruben2020 https://github.com/ruben2020/ 
 //
 //   Licensed under the Apache License, Version 2.0 (the "License");
