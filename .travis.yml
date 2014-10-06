@@ -2,4 +2,11 @@ language: go
 
 go: tip
 
+script: go install tags2uml
+
+notifications:
+  email:
+    - ruben2020-git@users.sourceforge.net
+  on_success: change
+  on_failure: always
 
