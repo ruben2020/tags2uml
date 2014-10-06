@@ -115,6 +115,7 @@ func remove_keywords(txt string) string {
     str1 = strings.Replace(str1, "private", "", 1)
     str1 = strings.Replace(str1, "public", "", 1)
     str1 = strings.Replace(str1, "protected", "", 1)
+    str1 = strings.Replace(str1, "static", "", 1)
     str1 = strings.Replace(str1, "volatile", "", 1)
     str1 = strings.Replace(str1, "synchronized", "", 1)
     str1 = strings.Replace(str1, "final", "", 1)
