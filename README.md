@@ -27,6 +27,15 @@ But it should theoritically work on other object oriented languages supported by
 * Data type of members and return types of methods of a class (only for C++, Java and C#)
 
 
+## Example of generated UML class diagram
+
+The DOT file for this was generated using these options: `tags2umlclass --members=1 --infile tags --outfile guava-eventbus.dot`.
+
+This is a whitebox UML class diagram of the [Google Guava EventBus](https://code.google.com/p/guava-libraries/wiki/EventBusExplained), which is set to show all members and only public methods.
+
+![screenshot](doc/guava-eventbus.png)
+
+
 ## How to build and install?
 
 First, install the [Go](http://golang.org/) toolchain.
@@ -67,8 +76,15 @@ All of these have the same command line arguments.
 
 ## How is it licensed?
 
+It's free open source software.
+
 It is licensed under the [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0.html).    
-All DOT files generated using this tool is not subject to this license.
+All DOT files generated using this tool are not subject to this license.
+
+
+## Can I use it in a commercial environment without purchasing, for an unlimited time?
+
+Yes. However, donations are welcomed.
 
 
 ## Are there any known limitations?
