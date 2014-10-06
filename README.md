@@ -30,7 +30,8 @@ But it should theoritically work on other object oriented languages supported by
 
 ## Example of generated UML class diagram
 
-The DOT file for this was generated using these options: `tags2uml --members=1 --infile tags --outfile guava-eventbus.dot`.
+The DOT file for this was generated using these options:    
+`tags2uml --members=1 --infile tags --outfile guava-eventbus.dot`.
 
 This is a whitebox UML class diagram of the [Google Guava EventBus](https://code.google.com/p/guava-libraries/wiki/EventBusExplained), which is set to show all members and only public methods. This was the [input tags file](doc/tags) that was used and this was the [output DOT file](doc/guava-eventbus.dot) that was generated using tags2uml.
 
@@ -63,13 +64,34 @@ There are no build dependencies, but to use it, you would also need [Exuberant-c
 
 To get more information on how to use this tool, please use `tags2uml --help`.
 
-Basic use with default options:    
+Basic use with default options (with automatic selection of files to be scanned):    
 ```bash
 cd ~/MySourceCode
 ctags --fields=+latinK -R
 tags2uml --infile tags --outfile MySourceCode.dot
 dot -Tpng -oMySourceCode.png MySourceCode.dot
 ```
+
+If you want to manually build a list of files to be scanned in Linux:    
+```bash
+cd ~/MySourceCode
+find -iname "*.java" > ./myfiles.txt
+ctags --fields=+latinK -L ./myfiles.txt
+tags2uml --infile tags --outfile MySourceCode.dot
+dot -Tpng -oMySourceCode.png MySourceCode.dot
+```
+
+If you want to manually build a list of files to be scanned in Windows:    
+```bash
+cd c:\MySourceCode
+dir /b/a/s *.java > myfiles.txt 
+ctags --fields=+latinK -L myfiles.txt
+tags2uml --infile tags --outfile MySourceCode.dot
+dot -Tpng -oMySourceCode.png MySourceCode.dot
+```
+
+Replace `*.java` with relevant extensions.    
+You may also want to edit `myfiles.txt` to exclude files that you do not wish to be scanned.
 
 
 ## How is it licensed?
@@ -89,6 +111,8 @@ Yes. However, donations are welcomed.
 
 For C++, [inline assembly code](http://en.wikipedia.org/wiki/Inline_assembler) is not supported by ctags. This mainly affects embedded software, OS and driver code.
 
+Please exclude files with inline assembly code from the list of files to be scanned by ctags.
+
 
 ## How can I contribute?
 
@@ -101,5 +125,13 @@ For C++, [inline assembly code](http://en.wikipedia.org/wiki/Inline_assembler) i
 ## List of Contributors
 
 [ruben2020](https://github.com/ruben2020)    
+(More welcomed)
 
+
+## Credits
+
+We thank the people behind the following projects:    
+[Exuberant-ctags](http://ctags.sourceforge.net/)   
+[Graphviz](http://www.graphviz.org/)    
+[Go](http://golang.org/)    
 
