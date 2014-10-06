@@ -30,7 +30,7 @@ But it should theoritically work on other object oriented languages supported by
 
 ## Example of generated UML class diagram
 
-The DOT file for this was generated using these options: `tags2umlclass --members=1 --infile tags --outfile guava-eventbus.dot`.
+The DOT file for this was generated using these options: `tags2uml --members=1 --infile tags --outfile guava-eventbus.dot`.
 
 This is a whitebox UML class diagram of the [Google Guava EventBus](https://code.google.com/p/guava-libraries/wiki/EventBusExplained), which is set to show all members and only public methods. This was the [input tags file](doc/tags) that was used and this was the [output DOT file](doc/guava-eventbus.dot) that was generated using tags2uml.
 
