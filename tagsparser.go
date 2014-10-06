@@ -31,7 +31,7 @@ if err != nil {
 }
 
 scanner := bufio.NewScanner(file)
-re := regexp.MustCompile(`^([A-Za-z0-9_]+)\t([^\t]+)\t([^\t]+)\tc`)
+re := regexp.MustCompile(`^([A-Za-z0-9_]+)\t([^\t]+)\t([^\t]+)\tclass`)
 re2 := regexp.MustCompile(`inherits:([A-Za-z0-9_\:,]+)`)
 for scanner.Scan() {
     match := re.FindStringSubmatch(scanner.Text())
