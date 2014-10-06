@@ -127,26 +127,32 @@ func add_members(arr []memberinfo_st) string {
     if opt_members == ONLYPUBLIC {
         for idx := range arr {
             if arr[idx].access == "+" {
-                outs = append(outs, arr[idx].access)
-                outs = append(outs, " ")
-                outs = append(outs, arr[idx].name)
-                if (len(arr[idx].datatype) > 0) {
-                    outs = append(outs, " : ", arr[idx].datatype)
-                }
-                outs = append(outs, "\\l")
+                outs = append(outs, add_member_string(arr[idx]))
+            }
+        }
+    } else if opt_members == ONLYPUBLICPROT {
+        for idx := range arr {
+            if (arr[idx].access == "+")||(arr[idx].access == "#") {
+                outs = append(outs, add_member_string(arr[idx]))
             }
         }
     } else {
         for idx := range arr {
-            outs = append(outs, arr[idx].access)
-            outs = append(outs, " ")
-            outs = append(outs, arr[idx].name)
-            if (len(arr[idx].datatype) > 0) {
-                outs = append(outs, " : ", arr[idx].datatype)
-            }
-            outs = append(outs, "\\l")
+            outs = append(outs, add_member_string(arr[idx]))
         }
     }
+    return strings.Join(outs, "")
+}
+
+func add_member_string(meminfo memberinfo_st) string {
+    var outs []string
+    outs = append(outs, meminfo.access)
+    outs = append(outs, " ")
+    outs = append(outs, meminfo.name)
+    if (len(meminfo.datatype) > 0) {
+        outs = append(outs, " : ", meminfo.datatype)
+    }
+    outs = append(outs, "\\l")
     return strings.Join(outs, "")
 }
 
@@ -159,14 +165,16 @@ func add_methods(arr []methodinfo_st, classname string) string {
             if arr[idx].name == classname {continue}
             if dupmap[arr[idx].name] == 99 {continue}
             if arr[idx].access == "+" {
-                outs = append(outs, arr[idx].access)
-                outs = append(outs, " ")
-                outs = append(outs, arr[idx].name)
-                outs = append(outs, "()")
-                if (len(arr[idx].returntype) > 0) {
-                    outs = append(outs, " : ", arr[idx].returntype)
-                }
-                outs = append(outs, "\\l")
+                outs = append(outs, add_method_string(arr[idx]))
+                dupmap[arr[idx].name] = 99
+            }
+        }
+    } else if opt_methods == ONLYPUBLICPROT {
+        for idx := range arr {
+            if arr[idx].name == classname {continue}
+            if dupmap[arr[idx].name] == 99 {continue}
+            if (arr[idx].access == "+")||(arr[idx].access == "#") {
+                outs = append(outs, add_method_string(arr[idx]))
                 dupmap[arr[idx].name] = 99
             }
         }
@@ -174,17 +182,23 @@ func add_methods(arr []methodinfo_st, classname string) string {
         for idx := range arr {
             if arr[idx].name == classname {continue}
             if dupmap[arr[idx].name] == 99 {continue}
-            outs = append(outs, arr[idx].access)
-            outs = append(outs, " ")
-            outs = append(outs, arr[idx].name)
-            outs = append(outs, "()")
-            if (len(arr[idx].returntype) > 0) {
-                outs = append(outs, " : ", arr[idx].returntype)
-            }
-            outs = append(outs, "\\l")
+            outs = append(outs, add_method_string(arr[idx]))
             dupmap[arr[idx].name] = 99
         }
     }
+    return strings.Join(outs, "")
+}
+
+func add_method_string(methinfo methodinfo_st) string {
+    var outs []string
+    outs = append(outs, methinfo.access)
+    outs = append(outs, " ")
+    outs = append(outs, methinfo.name)
+    outs = append(outs, "()")
+    if (len(methinfo.returntype) > 0) {
+        outs = append(outs, " : ", methinfo.returntype)
+    }
+    outs = append(outs, "\\l")
     return strings.Join(outs, "")
 }
 

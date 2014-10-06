@@ -21,8 +21,8 @@ But it should theoritically work on other object oriented languages supported by
 * Supports C++, Java, Python, Ruby and C#
 * Can build and run on any platform supported by [Go](http://golang.org/) i.e. Windows, Linux, Mac
 * Whitebox (with methods and members of classes) or blackbox (just class names)
-* Ability to show only public methods, all methods or no methods
-* Ability to show only public members, all methods or no members
+* Ability to show only public methods, only public and protected methods, all methods or no methods
+* Ability to show only public members, only public and protected members, all members or no members
 * Class inheritance is shown
 * Relationship shown, based on the data type of members of a class (only for C++, Java and C#)
 * Data type of members and return types of methods of a class (only for C++, Java and C#)

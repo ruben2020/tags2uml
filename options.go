@@ -19,9 +19,10 @@ package main
 import "flag"
 
 const ( 
-    NONE       = 0
-    ALL        = 1
-    ONLYPUBLIC = 2
+    NONE           = 0
+    ALL            = 1
+    ONLYPUBLIC     = 2 // only public
+    ONLYPUBLICPROT = 3 // only public and protected
 )
 
 // options and their default values
@@ -38,8 +39,8 @@ var ver bool = false
 
 func checkRange() bool {
     retval := true
-    if (opt_methods < 0)||(opt_methods > 2) {retval = false}
-    if (opt_members < 0)||(opt_members > 2) {retval = false}
+    if (opt_methods < 0)||(opt_methods > 3) {retval = false}
+    if (opt_members < 0)||(opt_members > 3) {retval = false}
     return retval
 }
 
@@ -47,8 +48,8 @@ func parse_options() {
     flag.BoolVar(&opt_blackbox, "blackbox", false, "true for blackbox model, false for whitebox model (default=false)")
     flag.BoolVar(&opt_inherit, "inherit", true, "true to display inheritance info, false to not display (default=true)")
     flag.BoolVar(&opt_relationship, "relations", true, "true to display relationship info, false to not display (default=true)")
-    flag.IntVar(&opt_methods, "methods", 2, "0=methods not displayed, 1=all methods displayed, 2=only public methods displayed (default)")
-    flag.IntVar(&opt_members, "members", 2, "0=members not displayed, 1=all members displayed, 2=only public members displayed (default)")
+    flag.IntVar(&opt_methods, "methods", 2, "0=methods not displayed, 1=all methods, 2=only public (default), 3=only public and protected")
+    flag.IntVar(&opt_members, "members", 2, "0=members not displayed, 1=all members, 2=only public (default), 3=only public and protected")
     flag.StringVar(&input_file, "infile", "tags", "path to input file (default=\"tags\")")
     flag.StringVar(&output_file, "outfile", "-", "path to output file, use \"-\" for stdout (default=\"-\")")
     flag.BoolVar(&help, "help", false, "print help message")
