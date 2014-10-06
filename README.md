@@ -29,7 +29,7 @@ But it should theoritically work on other object oriented languages supported by
 
 ## How to build and install?
 
-First install the [Go](http://golang.org/) toolchain.
+First, install the [Go](http://golang.org/) toolchain.
 
 Please see [these instructions](http://golang.org/doc/code.html#Workspaces) on how to setup the `src`, `pkg` and `bin` directories.    
 The `GOPATH` environment variable also needs to be setup according to [these instructions](http://golang.org/doc/code.html#GOPATH).
@@ -41,12 +41,12 @@ go install tags2uml
 ```
 
 After doing the above, the executable binary `tags2uml` should appear in `$GOPATH/bin`.    
-In order to use it directly, you could add it to PATH like this: `export PATH=$HOME/gopath/bin:$PATH`.
+In order to use it directly, you could add it to `PATH` like this: `export PATH=$HOME/gopath/bin:$PATH`.
 
 
 ## What are the dependencies?
 
-There are no build dependencies but to use it, you would also need [Exuberant-ctags](http://ctags.sourceforge.net/) and [Graphviz](http://www.graphviz.org/).
+There are no build dependencies, but to use it, you would also need [Exuberant-ctags](http://ctags.sourceforge.net/) and [Graphviz](http://www.graphviz.org/).
 
 
 ## How to use it?
@@ -61,7 +61,8 @@ tags2uml --infile tags --outfile MySourceCode.dot
 dot -Tpng -oMySourceCode.png MySourceCode.dot
 ```
 
-Instead of `dot`, you can also try `neato` or `twopi` which will generate diagrams with different kinds of layouts.
+Instead of `dot`, you can also try `neato` or `twopi` which will generate diagrams with different kinds of layouts.    
+All of these have the same command line arguments.
 
 
 ## How is it licensed?
