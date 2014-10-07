@@ -52,7 +52,9 @@ go install tags2uml
 ```
 
 After doing the above, the executable binary `tags2uml` should appear in `$GOPATH/bin`.    
-In order to use it directly, you could add it to `PATH` like this: `export PATH=$HOME/gopath/bin:$PATH`.
+In order to use it directly, you could add it to `PATH` like this: `export PATH=$GOPATH/bin:$PATH`.
+
+*TODO: Need instructions for Windows*
 
 
 ## What are the dependencies?
