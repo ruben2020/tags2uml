@@ -23,8 +23,8 @@ But it should theoritically work on other object oriented languages supported by
 * Whitebox (with methods and members of classes) or blackbox (just class names)
 * Ability to show only public methods, only public and protected methods, all methods or no methods
 * Ability to show only public members, only public and protected members, all members or no members
-* Class inheritance is shown
-* Relationship shown, based on the data type of members of a class (only for C++, Java and C#)
+* Class inheritance is optionally shown
+* Relationship optionally shown, based on the data type of members of a class (only for C++, Java and C#)
 * Data type of members and return types of methods of a class (only for C++, Java and C#)
 
 
@@ -70,7 +70,7 @@ cd ~/MySourceCode
 ctags --fields=+latinK -R
 tags2uml --infile tags --outfile MySourceCode.dot
 dot -Tpng -oMySourceCode.png MySourceCode.dot
-```
+```     
 
 If you want to manually build a list of files to be scanned in Linux:    
 ```bash
@@ -79,7 +79,7 @@ find -iname "*.java" > ./myfiles.txt
 ctags --fields=+latinK -L ./myfiles.txt
 tags2uml --infile tags --outfile MySourceCode.dot
 dot -Tpng -oMySourceCode.png MySourceCode.dot
-```
+```     
 
 If you want to manually build a list of files to be scanned in Windows:    
 ```
@@ -88,7 +88,7 @@ dir /b/a/s *.java > myfiles.txt
 ctags --fields=+latinK -L myfiles.txt
 tags2uml --infile tags --outfile MySourceCode.dot
 dot -Tpng -oMySourceCode.png MySourceCode.dot
-```
+```      
 
 Replace `*.java` with relevant extensions.    
 You may also want to edit `myfiles.txt` to exclude files that you do not wish to be scanned.
