@@ -65,15 +65,21 @@ if err != nil {
 scanner := bufio.NewScanner(file)
 re := regexp.MustCompile(`^([A-Za-z0-9_]+)\t([^\t]+)\t([^\t]+)\t([A-Za-z]+)`)
 rea := regexp.MustCompile(`access:([A-Za-z0-9_]+)`)
-rec := regexp.MustCompile(`class:([A-Za-z0-9_]+)`)
-rel := regexp.MustCompile(`language:([A-Za-z0-9_]+)`)
+rec := regexp.MustCompile(`class:([A-Za-z0-9_\.]+)`)
+rel := regexp.MustCompile(`language:([A-Za-z0-9_\#]+)`)
 ret := regexp.MustCompile(`\/\^([ ]*)([A-Za-z0-9_\.]+)([^A-Za-z0-9_]+)(.*)\$\/`)
 for scanner.Scan() {
     match := re.FindStringSubmatch(scanner.Text())
     if (len(match) == 0) {continue}
     matchc := rec.FindStringSubmatch(scanner.Text())
     ci := classinfo_st{}
-    if (len(matchc) != 0) {ci = classmap[matchc[1]]}
+    var cn string
+    if (len(matchc) != 0) {cn = matchc[1]}
+    cnsep := strings.LastIndex(cn, ".")
+    if (cnsep != -1) {
+        cn = cn[cnsep+1:]
+    }
+    if (len(cn) != 0) {ci = classmap[cn]}
     if (len(ci.name) == 0) {continue}
     matcha := rea.FindStringSubmatch(scanner.Text())
     matchl := rel.FindStringSubmatch(scanner.Text())
@@ -124,6 +130,10 @@ func remove_keywords(txt string) string {
     str1 = strings.Replace(str1, "struct", "", 1)
     str1 = strings.Replace(str1, "union", "", 1)
     str1 = strings.Replace(str1, "enum", "", 1)
+    str1 = strings.Replace(str1, "override", "", 1)
+    str1 = strings.Replace(str1, "internal", "", 1)
+    str1 = strings.Replace(str1, "extern", "", 1)
+    str1 = strings.Replace(str1, "readonly", "", 1)
     str1 = strings.Replace(str1, "*", "", -1)
     str1 = strings.Replace(str1, ":", "", -1)
     return str1

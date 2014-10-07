@@ -12,7 +12,7 @@ The output file is a Graphviz [DOT file](http://www.graphviz.org/content/dot-lan
 
 Currently, we only have this in source code. Binaries are not yet distributed. This program is written in [Go](http://golang.org/).
 
-Currently, it has been tested on Linux and Windows 7. It has been tested on C++, Java and Python source code. Work in progress. But it should theoritically work on other object oriented languages supported by ctags and on other platforms supported by [Go](http://golang.org/).
+Currently, it has been tested on Linux and Windows 7. It has been tested on C++, Java, Python and C# source code. Work in progress. But it should theoritically work on other object oriented languages supported by ctags and on other platforms supported by [Go](http://golang.org/).
 
 
 ## Features
@@ -32,7 +32,7 @@ Currently, it has been tested on Linux and Windows 7. It has been tested on C++,
 The DOT file for this was generated using these options:    
 `tags2uml --members=1 --infile tags --outfile guava-eventbus.dot`.
 
-This is a whitebox UML class diagram of the [Google Guava EventBus](https://code.google.com/p/guava-libraries/wiki/EventBusExplained), which is set to show all members and only public methods. This was the [input tags file](doc/tags) that was used and this was the [output DOT file](doc/guava-eventbus.dot) that was generated using tags2uml.
+This is a whitebox UML class diagram of the [Google Guava EventBus](https://code.google.com/p/guava-libraries/wiki/EventBusExplained), which is set to show all members and methods as well as have inheritance and relationship enabled. This was the [input tags file](doc/tags) that was used and this was the [output DOT file](doc/guava-eventbus.dot) that was generated using tags2uml.
 
 ![screenshot](doc/guava-eventbus.png)
 
