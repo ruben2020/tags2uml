@@ -82,7 +82,7 @@ dot -Tpng -oMySourceCode.png MySourceCode.dot
 ```
 
 If you want to manually build a list of files to be scanned in Windows:    
-```bash
+```
 cd c:\MySourceCode
 dir /b/a/s *.java > myfiles.txt 
 ctags --fields=+latinK -L myfiles.txt
