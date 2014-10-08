@@ -14,6 +14,7 @@ Currently, we only have this in source code. Binaries are not yet distributed. T
 
 Currently, it has been tested on Linux and Windows 7. It has been tested on C++, Java, Python and C# source code. Work in progress. But it should theoritically work on other object oriented languages supported by ctags and on other platforms supported by [Go](http://golang.org/).
 
+![workflow](doc/workflow.png)
 
 ## Features
 
