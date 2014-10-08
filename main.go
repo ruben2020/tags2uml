@@ -22,7 +22,7 @@ import "os"
 import "log"
 import "io/ioutil"
 
-const sw_version string = "v0.1"
+const sw_version string = "v0.01"
 
 func main() {
     init_datastore()
