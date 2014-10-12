@@ -1,5 +1,8 @@
 tags2uml
 ========
+
+Generates UML class diagrams, from source code
+
 [![Build Status](https://travis-ci.org/ruben2020/tags2uml.svg)](https://travis-ci.org/ruben2020/tags2uml)    
 
 
