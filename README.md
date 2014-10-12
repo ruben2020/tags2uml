@@ -47,8 +47,8 @@ This is a whitebox UML class diagram of the [Google Guava EventBus](https://code
 
 First, install the [Go](http://golang.org/) toolchain.
 
-Please see [these instructions](http://golang.org/doc/code.html#Workspaces) on how to setup the `src`, `pkg` and `bin` directories.    
-The `GOPATH` environment variable also needs to be setup according to [these instructions](http://golang.org/doc/code.html#GOPATH).
+Please see [these instructions](http://golang.org/doc/code.html#Workspaces) on how to setup the `src`, `pkg` and `bin` directories. The `tags2uml` repository should be below `src`    
+The `GOPATH` environment variable also needs to be setup according to [these instructions](http://golang.org/doc/code.html#GOPATH) like this: `export GOPATH=$HOME/goprojects`.
 
 Then, run these commands to clone the git repository and then build the source code:    
 ```bash
@@ -57,7 +57,7 @@ go install tags2uml
 ```
 
 After doing the above, the executable binary `tags2uml` should appear in `$GOPATH/bin`.    
-In order to use it directly, you could add it to `PATH` like this: `export PATH=$GOPATH/bin:$PATH`.
+In order to use it directly, you could add it to `PATH` like this: `export PATH=$PATH:$GOPATH/bin`.
 
 *TODO: Need instructions for Windows*
 
