@@ -48,7 +48,7 @@ This is a whitebox UML class diagram of the [Google Guava EventBus](https://code
 First, install the [Go](http://golang.org/) toolchain.
 
 Please see [these instructions](http://golang.org/doc/code.html#Workspaces) on how to setup the `src`, `pkg` and `bin` directories. The `tags2uml` repository should be below `src`    
-The `GOPATH` environment variable also needs to be setup according to [these instructions](http://golang.org/doc/code.html#GOPATH) like this: `export GOPATH=$HOME/goprojects`.
+The `GOPATH` environment variable also needs to be setup according to [these instructions](http://golang.org/doc/code.html#GOPATH) to point to the root directory of the Go projects like this: `export GOPATH=$HOME/goprojects` in Linux, or `set GOPATH=c:/goprojects` in Windows.
 
 Then, run these commands to clone the git repository and then build the source code:    
 ```bash
@@ -56,10 +56,12 @@ git clone https://github.com/ruben2020/tags2uml.git $GOPATH/src/tags2uml
 go install tags2uml
 ```
 
-After doing the above, the executable binary `tags2uml` should appear in `$GOPATH/bin`.    
-In order to use it directly, you could add it to `PATH` like this: `export PATH=$PATH:$GOPATH/bin`.
+After doing the above, the executable binary `tags2uml` should appear in `$GOPATH/bin` in Linux. In Windows, the `tags2uml.exe` executable binary should appear in `c:\goprojects\bin`.    
+In order to use it directly, you could add it to `PATH` like this: `export PATH=$PATH:$GOPATH/bin` in Linux, or `set PATH=%PATH%;c:\goprojects\bin` in Windows.
 
-*TODO: Need instructions for Windows*
+In Windows, you may also want to set the `GOROOT` environment variable like this: `set GOROOT=C:/go` to point to the Go tools installation path, and add Go to PATH like this: `set PATH=%PATH%;c:\go`. The method to set the environment variables permanently in Windows can be [found here](http://www.computerhope.com/issues/ch000549.htm).
+
+The method to set the environment variables permanently in Linux is to place the above `export` commands into the `~/.bashrc` file.
 
 
 ## What are the dependencies?
