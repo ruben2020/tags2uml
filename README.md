@@ -38,7 +38,7 @@ So far, it has been tested on Linux and Windows 7. It has been tested on C++, Ja
 The DOT file for this was generated using these options:    
 `tags2uml --members=1 --methods=1 --infile tags --outfile guava-eventbus.dot`.
 
-This is a whitebox UML class diagram of the [Google Guava EventBus](https://code.google.com/p/guava-libraries/wiki/EventBusExplained), which is set to show all members and methods as well as have inheritance and relationship enabled. This was the [input tags file](doc/tags) that was used and this was the [output DOT file](doc/guava-eventbus.dot) that was generated using tags2uml.
+This is a whitebox UML class diagram of the [Google Guava EventBus](https://github.com/google/guava/wiki/EventBusExplained), which is set to show all members and methods as well as have inheritance and relationship enabled. This was the [input tags file](doc/tags) that was used and this was the [output DOT file](doc/guava-eventbus.dot) that was generated using tags2uml.
 
 ![screenshot](doc/guava-eventbus.png)
 
