@@ -23,6 +23,23 @@ import "regexp"
 import "strings"
 
 
+func getFileName(input string) string {
+   endPos := strings.LastIndex(input, ".")
+   if (endPos < 0) {
+       endPos = len(input)
+   }
+   beginPos := 0
+   for i := endPos - 1; i >= 0; i-- {
+       r := input[i]
+       if (r < 'a' || r > 'z') && (r < 'A' || r > 'Z') {
+           beginPos = i
+           break
+       }
+   }
+   return input[beginPos+1:endPos]
+}
+
+
 func parseClass(fn string) {
 
 file, err := os.Open(fn)
@@ -38,6 +55,14 @@ for scanner.Scan() {
     if len(match) != 0 {
          newclass := classinfo_st{}
          newclass.name = match[1]
+         filepath := match[2]
+         filebasename := getFileName(filepath)
+         if (newclass.name != filebasename) {
+             newclass.name = filebasename + "." + match[1]
+         } else {
+             newclass.name = match[1]
+         }
+
          match2 := re2.FindStringSubmatch(scanner.Text())
          if len(match2) != 0 {
              newclass.parents = strings.Split(match2[1], ",")
@@ -75,10 +100,11 @@ for scanner.Scan() {
     ci := classinfo_st{}
     var cn string
     if (len(matchc) != 0) {cn = matchc[2]}
-    cnsep := strings.LastIndex(cn, ".")
-    if (cnsep != -1) {
-        cn = cn[cnsep+1:]
-    }
+
+    //cnsep := strings.LastIndex(cn, ".")
+    //if (cnsep != -1) {
+        //cn = cn[cnsep+1:]
+    //}
     if (len(cn) != 0) {ci = classmap[cn]}
     if (len(ci.name) == 0) {continue}
     matcha := rea.FindStringSubmatch(scanner.Text())
