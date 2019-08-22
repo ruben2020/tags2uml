@@ -1,6 +1,6 @@
 
 //   tags2uml
-//   Copyright 2014 ruben2020 https://github.com/ruben2020/ 
+//   Copyright 2014 ruben2020 https://github.com/ruben2020/
 //
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -73,7 +73,7 @@ for  _, value := range classmap {
         for inti := range intlst {
             if intlst[inti] == value.id {continue}
             if idpairs[createPairOfIds(intlst[inti], value.id)] == 99 {continue}
-            outs = append(outs, buildArrowLine(intlst[inti], value.id, "none"))
+            outs = append(outs, buildArrowLine(intlst[inti], value.id, "vee", "back"))
             idpairs[createPairOfIds(intlst[inti], value.id)] = 99
         }
     }
@@ -109,7 +109,7 @@ func createPairOfIds(id1 int, id2 int) string {
     return strings.Join(outs, "")
 }
 
-func buildArrowLine(id1 int, id2 int, arrowtype string) string {
+func buildArrowLine(id1 int, id2 int, arrowtype string, dir string) string {
     var outs []string
     outs = append(outs, "n")
     outs = append(outs, strconv.Itoa(id1))
@@ -117,7 +117,10 @@ func buildArrowLine(id1 int, id2 int, arrowtype string) string {
     outs = append(outs, strconv.Itoa(id2))
     outs = append(outs, " [arrowhead=\"")
     outs = append(outs, arrowtype)
-    outs = append(outs, "\"];\n")
+    outs = append(outs, "\"")
+    outs = append(outs, ", dir=")
+    outs = append(outs, dir)
+    outs = append(outs, "];\n")
     return strings.Join(outs, "")
 }
 
